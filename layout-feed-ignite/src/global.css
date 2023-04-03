@@ -8,26 +8,29 @@
   --gray-800: #202024;
   --gray-900: #121214;
 
+  --green-300: #00B37E;
   --green-500: #00875f;
 }
 
-/* https://app.rocketseat.com.br/node/chapter-i-6/group/estrutura-da-aplicacao-3/lesson/css-global */
-/* 4:03 */
+:focus {
+  outline: transparent;
+  box-shadow: 0 0 0 2px var(--green-500)
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 body {
-  background: #121214;
-  color: #fff;
+  background: var(--gray-900);
+  color: var(--gray-300);
+  -webkit-font-smoothin: antialiased;
 }
 
-h1 {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 50px;
-  color: white;
+body, input, textarea, button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
 }
