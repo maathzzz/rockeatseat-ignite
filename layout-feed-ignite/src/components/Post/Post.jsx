@@ -1,7 +1,9 @@
 import React from 'react'
 import styles from './Post.module.css';
+import { Comment } from '../Comment/Comment';
+import { Avatar } from '../Avatar/Avatar';
 
-export function Post() {
+export function Post(props) {
 
   const dataNow = new Date().toLocaleDateString('pt-BR')
 
@@ -9,9 +11,9 @@ export function Post() {
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <img className={styles.avatar} src='https://avatars.githubusercontent.com/u/86098429?v=4'/>
+          <Avatar hasBorder src={props.avatar}/>
           <div className={styles.authorInfo}>
-              <strong> Matheus de Amorim Favero </strong>
+              <strong> {props.name} </strong>
               <span> Web Developer </span>
           </div>
         </div>
@@ -34,11 +36,18 @@ export function Post() {
       </div>
       <form className={styles.commentForm}>
         <strong> Deixe seu Feedback!</strong>
-
         <textarea placeholder="Deixe um comentário..."/>
 
-        <button type="submit">Comentar</button>
+        <footer>
+          <button type="submit">Comentar</button>
+        </footer>
       </form>
+
+      <div className={styles.commentList}>
+        <Comment />
+        <Comment />
+        <Comment />
+      </div>
     </article>
   )
 }

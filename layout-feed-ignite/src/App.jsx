@@ -16,14 +16,8 @@ function App() {
       <div className={styles.wrapper}> 
         <Sidebar />
         <main>
-          <Post 
-            name="Matheus de Amorim Favero" 
-            text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem maxime eos accusantium." 
-          />
-          <Post 
-            name="Mano Hilas" 
-            text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem maxime eos accusantium." 
-          />
+          <Post name="Victoria" avatar="https://github.com/victoriacassolo.png"/>
+          <Post name="Daniel" avatar="https://github.com/danielneris.png"/>
         </main>
       </div>
     </div>
