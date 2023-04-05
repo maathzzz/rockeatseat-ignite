@@ -10,13 +10,13 @@ const posts = [
   {
     id: 1,
     author: {
-      avatarUrl: "https://github.com/maathzzz.png",
-      name: "Matheus de Amorim Favero",
+      avatarUrl: "https://github.com/victoriacassolo.png",
+      name: "Victoria Cassolo",
       role: "Dev Front-end"
     },
     content: [
-      {type: 'paragraph', content: 'Fala galeraa 👋',},
-      {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',},
+      {type: 'paragraph', content: 'Bom dia Pessoal 👋',},
+      {type: 'paragraph', content: 'Acabei mais um curso de responsividade da Rocketseat 🚀',},
       {type: 'link', content: 'https://www.youtube.com',},  
     ],
     publishedAt: new Date('2023-04-04 11:38:00'),

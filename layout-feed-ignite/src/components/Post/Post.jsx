@@ -9,9 +9,8 @@ import styles from './Post.module.css';
 
 
 export function Post({author, publishedAt, content}) {
-
   const [ comments, setComments ] = useState([
-    'Post muito bacana'
+    // 'Post muito bacana'
   ]) 
 
   const [ newCommentText, setNewCommentText ] = useState('')
@@ -41,8 +40,24 @@ export function Post({author, publishedAt, content}) {
   }
 
   function handleNewCommentChange() {
+    event.target.setCustomValidity('');
     setNewCommentText(event.target.value);
   }
+
+  function deleteComment(commentToDelete) {
+    // imutabilidade => as variáveis não sofrem mutação
+    const commentWithoutDeletedOne = comments.filter(comment =>{
+      return comment !== commentToDelete;
+    })
+
+    setComments(commentWithoutDeletedOne);
+  }
+
+  function handleNewCommentInvalid(){
+    event.target.setCustomValidity('Este campo é obrigatório.');
+  }
+
+  const isNewCommentEmpty = newCommentText.length === 0;
 
   return (
     <article className={styles.post}>
@@ -77,16 +92,24 @@ export function Post({author, publishedAt, content}) {
           onChange={handleNewCommentChange}
           value={newCommentText}
           placeholder="Deixe um comentário..."
+          onInvalid={handleNewCommentInvalid}
+          required={true}
         />
 
         <footer>
-          <button type="submit">Comentar</button>
+          <button type="submit" disabled={isNewCommentEmpty}>Comentar</button>
         </footer>
       </form>
 
       <div className={styles.commentList}>
         {comments.map(comment => {
-          return <Comment key={comment} content={comment} />
+          return (
+            <Comment 
+              key={comment} 
+              content={comment} 
+              onDeleteComment={deleteComment}
+            />
+          )
         })}
       </div>
     </article>
